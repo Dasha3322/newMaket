@@ -1,0 +1,88 @@
+$Bebas:"Bebas Neue", sans-serif;
+$openSans: "Open Sans", sans-serif;
+
+body{
+    font-family: $openSans;
+    font-size: 23px;
+    line-height: 177%;
+    letter-spacing: 0.01em;
+    color: #48555b;
+}
+.container{
+    max-width: 970px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;   // так как поставили box-sizing добавялем паддинги (их 30пкс) к ширине
+    // p заворачиваем в див и уберем через класс див марджины сверху и снизу
+    // высота в dvh это динамическая единица высоты экрана(учитывает челку iphona), лучшее ее использовать
+}
+.logo{
+    height: 23px;
+    img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+.hero{
+    background-image: url(../images/hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &__row{
+        height: calc(100dvh - 68px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4dvh 0 8dvh;
+        box-sizing: border-box;
+    }
+    &__center{
+        color: #fff;
+        text-align: center;
+    }
+    &__title{
+        font-family: $Bebas;
+        font-weight: 400;
+        font-size: 60px;
+        letter-spacing: 0.1em;
+        margin: 0 0 2dvh 0;
+    }
+    &__desc{
+        font-weight: 600;
+        font-size: 16px;
+
+        > *:first-child{
+            margin-top: 0;    
+        }
+        > *:last-child{
+            margin-bottom: 0;
+        }
+    }
+    &__scroll{
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.34em;
+        text-align: center;
+        color: #fff;
+        animation: ease-in-out scroll 3s infinite forwards;
+    }
+
+}
+@keyframes scroll{
+    0%{
+        transform: translateY(-20px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(-20px);
+    }
+}
+.header{
+    height: 68px;
+    
+}
