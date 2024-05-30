@@ -17,7 +17,11 @@ body{
     // высота в dvh это динамическая единица высоты экрана(учитывает челку iphona), лучшее ее использовать
 }
 .logo{
+    display: flex;
     height: 23px;
+    &--lit{
+        height: 18px;
+    }
     img{
         max-height: 100%;
         max-width: 100%;
@@ -31,7 +35,7 @@ body{
     background-attachment: fixed;
 
     &__row{
-        height: calc(100dvh - 68px);
+        height: calc(100dvh - 65px);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -83,6 +87,156 @@ body{
     }
 }
 .header{
-    height: 68px;
-    
+    position: sticky;
+    left: 0;
+    right: 0;
+    padding: 10px 0 10px;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: 100;
+
+    &__row{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    } 
+}
+.menu{
+    &__list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+    &__item + &__item{   
+        // применение свойств ко всем item кроем первого
+        margin-left: 35px;
+    }
+    &__link{
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.09em;
+        color: #48555b;
+        text-decoration: none;
+        transition: 0.3s;
+        text-transform: uppercase;
+        &:hover{
+            color: #00a4e5;
+            text-shadow: 0 0 1px #00a4e5;
+        }
+    }
+}
+.section-title{
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        top: calc(100% + 11px);
+        height: 2px;
+        width: 52px;
+        background-color: #00a4e5;
+        left: 0;
+    }
+    &--center{
+        text-align: center;
+        &:after{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+.story{
+    padding: 57px 0;
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 80px;
+    }
+    &__left{
+        width: 40%;
+    }
+    &__right{
+        width: 50%;
+    }
+}
+.text-content{
+    > *:first-child{
+        margin-top: 0;
+    }
+    > *:last-child{
+        margin-bottom: 0;
+    }
+    h3{
+        font-size: 20px;
+        letter-spacing: 0.01em;
+        line-height: normal;
+        margin: 30px 0;
+        span{
+            color: #16ace8;
+        }
+    }
+    p{
+        font-size: 13px;
+        line-height: 177%;
+        letter-spacing: 0.01em;
+        margin: 30px 0;
+    }
+}
+.we-do{
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
+    &__col{
+        width: 33.3%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    &-item{
+        position: relative;
+        height: 224px;
+        display: block;
+        text-decoration: none;
+        overflow: hidden;
+        &:hover{
+            .we-do-item__image{
+                transform: scale(1.1);
+            }
+        }
+
+        &__image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            // object всегда лучше применять для image
+            transition: .3s;
+
+        }
+        &__content{
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        &__title{
+           
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 121%;
+            letter-spacing: 0.01em;
+            color: #fff;
+        }
+    }
 }
